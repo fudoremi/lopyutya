@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F8F4EC;
+  --color-warm-beige: #E8DCCB;
+  --color-hazelnut: #C7A17A;
+  --color-soft-brown: #8B6B4A;
+  --color-chocolate: #5A4633;
+  --color-muted-gold: #D8B36A;
+  
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 6s ease-in-out infinite 3s;
+  --animate-pulse-soft: pulse-soft 4s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
+
+@layer base {
+  html, body {
+    @apply bg-cream text-chocolate font-sans scroll-smooth;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-warm-beige/50;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-hazelnut rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-soft-brown;
+  }
+
+  /* Text selection */
+  ::selection {
+    @apply bg-muted-gold/30 text-chocolate;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/40 backdrop-blur-md border border-white/50 shadow-[0_8px_32px_0_rgba(90,70,51,0.05)] rounded-2xl;
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(216, 179, 106, 0.5);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-warm-beige rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-soft-brown;
+  }
+}
